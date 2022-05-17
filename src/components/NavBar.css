@@ -1,0 +1,122 @@
+.topbar {
+    background-color: #38414a;
+    padding: 0px 20px;
+    height: 70px;
+    font-size: 0.875rem;
+  
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  width: 220px;
+  transition: all 0.3s ease-in-out;
+}
+.logo-container-closed {
+  width: 70px;
+  transition: all 0.3s ease-in-out;
+}
+.logo {
+  border-radius: 10px;
+}
+.company-title {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  .company-title {
+    display: none;
+  }
+  .logo-container {
+    width: 70px;
+  }
+}
+
+.nav-link {
+  color: #ffffff99 !important;
+}
+.form-control {
+  background-color: #ffffff12;
+  border: none;
+  border-radius: 30px;
+}
+.form-control:focus {
+  box-shadow: none;
+  color: white;
+}
+
+.avatar {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 1.2rem;
+  clear: both;
+  font-weight: 400;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+  color: #6c757d;
+}
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+.dropdown-divider {
+  height: 0;
+  margin: 0.45rem 0;
+  overflow: hidden;
+  border-top: 1px solid #f7f7f7;
+}
+.dropdown-menu.show {
+  inset: 12px auto auto 0px !important;
+}
+.dropdown-megamenu {
+  width: 112vh;
+  padding: 20px;
+  left: 20px !important;
+  right: 20px !important;
+  background-image: url(http://ubold-r-d.coderthemes.com/static/media/megamenu-bg.2ce080f8.png);
+  background-position: 100% 100%;
+}
+.btn {
+  padding: 0 15px;
+  color: hsla(0, 0%, 100%, 0.6);
+  min-width: 32px;
+  display: block;
+  line-height: 70px;
+  text-align: center;
+  max-height: 70px;
+  background-color: transparent;
+  border: none;
+}
+.btn:focus {
+  box-shadow: none;
+}
+@media (max-width: 1200px) {
+  .create-new-container {
+    display: none;
+  }
+  .mega-menu-container {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .search-container {
+    display: none;
+  }
+  .maximize-container {
+    display: none;
+  }
+  .grid-container {
+    display: none;
+  }
+  .name-container {
+    display: none;
+  }
+}
+  

@@ -1,0 +1,41 @@
+[
+    {
+        "ShipmentNumber": 123456,
+        "FreightyBillNumber": 323232,
+        "Status": "NEW",
+        "Origin" : 123456,
+        "TransportationProvider":"CH Robhinson",
+        "ExpectedShipDate":323232,
+        "Destination":123456,
+        "Terms":"Prepaid",
+        "TotalWeight":"6565",
+        "Qtry":"15",
+        "Cost":1500
+    },
+    {
+        "ShipmentNumber": 123457,
+        "Freighty Bill number": 323232,
+        "Status": "NEW",
+        "Origin" : 123456,
+        "TransportationProvider":"CH Robhinson",
+        "ExpectedShipDate":323232,
+        "Destination":123456,
+        "Terms":"Prepaid",
+        "TotalWeight":"6565",
+        "Qtry":"15",
+        "Cost":1500
+    },
+    {
+        "ShipmentNumber": 123458,
+        "Freighty Bill number": 323232,
+        "Status": "NEW",
+        "Origin" : 123456,
+        "TransportationProvider":"CH Robhinson",
+        "ExpectedShipDate":323232,
+        "Destination":123456,
+        "Terms":"Prepaid",
+        "TotalWeight":"6565",
+        "Qtry":"15",
+        "Cost":1500
+    }
+]

@@ -1,0 +1,32 @@
+#Shipments h2{
+    font-weight: 400;
+    color: rgb(154, 155, 155);
+    font-size: 16px;
+}
+#Shipments p{
+    font-weight: 600;
+}
+#Shipments{
+    margin-bottom: 15px;
+}
+#editButton{
+    background-color: white;
+    border: 1px solid blueviolet;
+    border-radius: 10px;
+    color: blueviolet;
+    font-size: 18px;
+    font-weight: 700;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#cost{
+    text-align: right;
+}
+#shipCost{
+    font-size: 20px;
+    font-weight: 800;
+    color: blueviolet;
+}
+#destination{
+    margin-left: 10%;
+}

@@ -1,0 +1,23 @@
+#manageShipments{
+    background-color: rgb(25, 158, 215);
+    color: white;
+    height: 60px;
+    margin-bottom: 5px;
+}
+#shipNumber{
+    float: right;
+    font-size: 20px;
+    font-weight: 700;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+#ManageH2{
+    font-size: 30px;
+    margin-left: 0%;
+    margin-top: 10px;
+}
+#boxIcon{
+    margin-left: 15px;
+    height: 60px;
+    width: 45px;
+}

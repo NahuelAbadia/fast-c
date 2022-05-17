@@ -1,103 +1,144 @@
-import React, { useState } from 'react'
-import { BiMenu } from "react-icons/bi";
-import { AiOutlineSearch } from "react-icons/ai";
-import { BsFullscreen, BsFullscreenExit, BsGear } from "react-icons/bs";
-import { BiChevronDown } from "react-icons/bi";
-import { CgBell } from "react-icons/cg"
-import { MdOutlineGridView } from "react-icons/md"
-import eeuu from "../assets/eeuu.png"
+import React, { useState, useEffect } from "react";
+import {
+  Dropdown,
+  NavLink,
+  NavItem,
+  FormControl,
+  Button,
+} from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { FaBars } from "react-icons/fa";
+import { FiBell, FiGrid, FiMaximize, FiSettings } from "react-icons/fi";
+import Logo from "../assets/logo.svg";
+import "./NavBar.css";
 
-const Navbar = () => {
+const NavBar = () => {
 
-  const [fullScreen, setFullScreen] = useState<boolean>(false)
-  const [image, setImage] = useState<any>(BsFullscreen)
+  const [showLogo, setShowLogo] = useState(true);
 
-  const launchFullScreen = () => {
-    setFullScreen(!fullScreen)
-    setImage(BsFullscreenExit)
-    if (fullScreen === false) {
-      document.documentElement.requestFullscreen()
-    } else {
-      setImage(BsFullscreen)
-      document.exitFullscreen()
-    }
-  }
+  const handleToggle = () => {
+    
+    setShowLogo(!showLogo);
+  };
+  const handleToggleRightDrawer = () => {
+
+  };
 
   return (
-    <div className="container-fluid">
-      <div className="row d-flex flex-column align-content-between" style={{ height: "70px", background: "#38414A" }}>
-        <div className="col-4 h-100">
-          <div className="d-flex flex-row gap-3 align-items-baseline justify-content-evenly">
-            <h5 className="fs-5 text-light">UBOLD</h5>
-            <button className="btn btn-transparent fs-3 text-light"><BiMenu /></button>
-            <h5 className="fs-6 text-secondary">Create New</h5>
-            <h5 className="fs-6 text-secondary">Mega Menu</h5>
+    <div className="d-flex justify-content-between topbar fixed-top">
+      <div className="align-items-center d-flex">
+        <Link to="/">
+          <div
+            className={!showLogo ? "logo-container" : "logo-container-closed"}
+          >
+            <img src={Logo} alt="logo" className="logo ms-1 me-3" />
+            {!showLogo && <span className="company-title">BotsTMS</span>}
           </div>
-        </div>
-        <div className="col-4 h-100">
-          <div className="d-flex flex-row align-items-center justify-content-evenly w-100 h-100">
-
-            <div className="d-flex flex-row align-items-center justify-content-center w-100 h-100">
-              <input
-                type="text"
-                placeholder="Search..."
-                className="rounded-pill py-2 px-3"
-              />
+        </Link>
+        <Button onClick={handleToggle}>
+          <FaBars />
+        </Button>
+        <Dropdown as={NavItem} className="create-new-container">
+          <Dropdown.Toggle as={NavLink}>Create New</Dropdown.Toggle>
+          <Dropdown.Menu>
+            <div>
+              <Dropdown.Item>New Projects</Dropdown.Item>
+              <Dropdown.Item>Create Users</Dropdown.Item>
+              <Dropdown.Item>Revenue Report</Dropdown.Item>
+              <Dropdown.Item>Settings</Dropdown.Item>
+              <div className="dropdown-divider"></div>
+              <Dropdown.Item>Help & Support</Dropdown.Item>
             </div>
-
-            <div className="d-flex flex-row align-items-center justify-content-evenly w-100 h-100">
-              <button
-                className="btn btn-transparent text-secondary pb-2"
-                onClick={launchFullScreen}
-              >
-                <span style={{ fontSize: "18px" }}>{image}</span>
-              </button>
-
-              <button className="btn btn-transparent text-secondary">
-                <MdOutlineGridView size="24px" />
-              </button>
-
-              <button className="btn btn-transparent text-secondary">
-                <img src={eeuu} alt="bandera" width={27} />
-              </button>
-
-              <div
-                className="position-relative"
-                style={{ cursor: "pointer" }}
-              >
-                <CgBell
-                  size="25px"
-                  color="#ADB0B4"
-                />
-                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                  9
-                </span>
+          </Dropdown.Menu>
+        </Dropdown>
+        <Dropdown as={NavItem} className="mega-menu-container">
+          <Dropdown.Toggle as={NavLink}>Mega Menu</Dropdown.Toggle>
+          <Dropdown.Menu className="dropdown-megamenu">
+            <div className="d-flex">
+              <div className="mx-4 col-3">
+                <p>UI Components</p>
+                <ul>
+                  <li>Widgets</li>
+                  <li>Buttons</li>
+                  <li>Icons</li>
+                  <li>Grid</li>
+                  <li>Typography</li>
+                </ul>
+              </div>
+              <div className="mx-4 col-3">
+                <p>Applications</p>
+                <ul>
+                  <li>eCommerce</li>
+                  <li>CRM Pages</li>
+                  <li>Email</li>
+                  <li>Calendar</li>
+                  <li>Team Contacts</li>
+                </ul>
+              </div>
+              <div className="mx-4 col-3">
+                <p>Extra Pages</p>
+                <ul>
+                  <li>Team Contacts</li>
+                  <li>eCommerce</li>
+                  <li>CRM Pages</li>
+                  <li>Email</li>
+                  <li>Calendar</li>
+                </ul>
               </div>
             </div>
-
-            <div className="d-flex flex-row align-items-center justify-content-evenly w-100 h-100">
-
-              <div className="d-flex flex-row align-items-center gap-2 h-100 px-2">
-                <img
-                  src="https://pbs.twimg.com/profile_images/1397638387901861892/SJ1k1Xyq_400x400.jpg"
-                  alt="user"
-                  width={32}
-                  className="rounded-circle"
-                />
-                <span className="fs-6 text-secondary">Nahuel <BiChevronDown /></span>
-              </div>
-
-              <div className="d-flex align-items-center h-100">
-                <h2 className="btn btn-transparent text-secondary fs-4"><BsGear /></h2>
-              </div>
-
+          </Dropdown.Menu>
+        </Dropdown>
+      </div>
+      <div className="align-items-center d-flex">
+        <NavItem className="search-container">
+          <FormControl
+            type="text"
+            placeholder="Search..."
+            className="mr-sm-2"
+          />
+        </NavItem>
+        <NavItem className="maximize-container">
+          <NavLink href="#" target="_blank">
+            <FiMaximize />
+          </NavLink>
+        </NavItem>
+        <NavItem className="grid-container">
+          <NavLink href="#" target="_blank">
+            <FiGrid />
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="#" target="_blank">
+            <FiBell />
+          </NavLink>
+        </NavItem>
+        <Dropdown as={NavItem}>
+          <Dropdown.Toggle as={NavLink}>
+            <img
+              src="https://i.pravatar.cc/25"
+              alt="avatar"
+              className="avatar"
+            />
+            <span className="name-container">Geneva</span>
+          </Dropdown.Toggle>
+          <Dropdown.Menu>
+            <div className="dropdown-avatar">
+              <p className="dropdown-item">Welcome!</p>
+              <Dropdown.Item>My Account</Dropdown.Item>
+              <Dropdown.Item>Settings</Dropdown.Item>
+              <Dropdown.Item>Lock Screen</Dropdown.Item>
+              <Dropdown.Item>Logout</Dropdown.Item>
             </div>
-
-          </div>
-        </div>
+          </Dropdown.Menu>
+        </Dropdown>
+        <NavItem>
+          <Button className="btn" onClick={handleToggleRightDrawer}>
+            <FiSettings />
+          </Button>
+        </NavItem>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default NavBar;
